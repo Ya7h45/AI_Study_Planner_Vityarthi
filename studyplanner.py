@@ -1,5 +1,10 @@
 import datetime
 
+def round_to_nearest_10_minutes(hours):
+    minutes = hours * 60
+    rounded_minutes = round(minutes / 10) * 10
+    return round(rounded_minutes / 60, 2)
+
 class Subject:
     def __init__(self, name, difficulty, importance, days_left):
         self.name = name
@@ -18,8 +23,8 @@ def get_subjects():
 
     for _ in range(n):
         name = input("Subject name: ")
-        difficulty = int(input("Difficulty (1-5): "))
-        importance = int(input("Importance (1-5): "))
+        difficulty = int(input("Rate the difficulty of the subject from (1-5): "))
+        importance = int(input("Rate its importance from (1-5): "))
         days_left = int(input("Days until exam: "))
 
         subjects.append(Subject(name, difficulty, importance, days_left))
@@ -35,15 +40,15 @@ def generate_schedule(subjects, hours_per_day):
     schedule = []
     for sub in subjects:
         allocated_time = (sub.priority / total_priority) * hours_per_day
-        schedule.append((sub.name, round(allocated_time, 2)))
+        schedule.append((sub.name, round_to_nearest_10_minutes(allocated_time)))
 
     return schedule
 
 
 def display_schedule(schedule):
-    print("\n📅 Today's Study Plan:\n")
+    print("\nToday's Study Plan:\n")
     for subject, hours in schedule:
-        print(f"👉 {subject}: {hours} hours")
+        print(f"{subject}: {hours} hours")
 
 
 def main():

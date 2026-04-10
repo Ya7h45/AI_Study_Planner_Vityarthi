@@ -10,7 +10,6 @@ An intelligent command-line based study planner built using Python that helps st
 * Smart time allocation based on difficulty, importance, and exam proximity
 * Daily study schedule generation
 * Simple and clean CLI interface
-* Easily extendable to real AI/ML systems
 
 ---
 
@@ -127,11 +126,6 @@ Contributions are welcome.
 3. Make your changes
 4. Submit a pull request
 
----
-
-## License
-
-This project is open-source and available under the MIT License.
 
 ---
 
